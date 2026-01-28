@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Architecture Decisions
 
-## Getting Started
+Practical, opinionated documentation of the decisions that shape scalable React and Next.js frontends. This repository is **not a full application**—it is a curated set of explanations, trade-offs, and minimal examples that mirror how experienced teams reason about architecture.
 
-First, run the development server:
+## Why This Exists
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Frontend architecture is rarely about “best practices.” It is about **context, trade-offs, and timing**. This repo captures that thinking so you can:
+
+- Compare approaches without dogma
+- Understand why teams evolve structure over time
+- Recognize architecture signals before they hurt delivery
+
+Intended audience:
+
+- Mid → senior frontend engineers
+- Tech leads and reviewers
+- Interviewers and candidates
+
+## Repository Map
+
+```
+frontend-architecture-decisions/
+│
+├── decisions/
+│   ├── 01-folder-structure.md
+│   ├── 02-feature-vs-layer.md
+│   ├── 03-state-management.md
+│   ├── 04-data-fetching.md
+│   ├── 05-component-boundaries.md
+│   ├── 06-side-effects.md
+│   └── 07-scaling-the-app.md
+│
+├── examples/
+│   ├── feature-based/
+│   └── layer-based/
+│
+└── notes/
+    ├── mistakes-to-avoid.md
+    └── why-this-matters.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Read This Repository
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Each decision doc follows a consistent structure:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Problem statement
+- Options and trade-offs
+- Why a specific approach is chosen
+- When it breaks
 
-## Learn More
+If you are new to architecture discussions, start with:
 
-To learn more about Next.js, take a look at the following resources:
+1. `decisions/01-folder-structure.md`
+2. `decisions/02-feature-vs-layer.md`
+3. `decisions/03-state-management.md`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Decision Index (Quick Overview)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Folder Structure** — balancing discoverability vs encapsulation
+2. **Feature vs Layer Architecture** — team boundaries and refactor cost
+3. **State Management** — local, URL, server, and global state choices
+4. **Data Fetching** — Server vs Client Components and caching strategy
+5. **Component Boundaries** — composition, prop discipline, avoiding “god” components
+6. **Side Effects** — effect misuse and event-driven alternatives
+7. **Scaling the App** — signals, breaking points, and what to change first
 
-## Deploy on Vercel
+## Examples
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The `examples/` directory contains **minimal illustrative code** only. It is meant to show structural patterns and decision consequences, not production-ready applications.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+Additional reading lives in `notes/`:
+
+- **mistakes-to-avoid.md** — common architectural pitfalls
+- **why-this-matters.md** — impact on onboarding, velocity, and team health
+
+## Project Philosophy
+
+- Architecture should serve the product
+- Over-engineering is as risky as under-engineering
+- Start simple and evolve deliberately
+- Optimize for clarity before performance
+
+> Good architecture is invisible — until it breaks.
+
+## Author
+
+Hossam Yehia — Frontend Developer (React & Next.js)  
+Experience-driven, production-tested decisions.
